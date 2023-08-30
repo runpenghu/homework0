@@ -1,0 +1,38 @@
+---
+title: "Homework 0"
+author: "Runpeng Hu"
+format: html
+execute: 
+  echo: false
+---
+
+1.  Write a Quarto document that defines variables $a=1, b=-1, c=-2$ and print out the solutions to $f(x) = ax^2+bx+c=0$. Do not report complex solutions, only real numbers.
+
+```{r}
+a <- 1
+b <- 3
+c <- 2
+
+disc <- (b^2 -4*a*c)
+
+if(disc < 0){
+  print("No real number solutions")
+} else if (disc == 0){
+  y <- (-b + sqrt(disc)/2*a)
+  print(paste("Solution: y =", y))
+} else {
+  y_1 <- (-b + sqrt(disc)/2*a)
+  y_2 <- (-b - sqrt(disc)/2*a)
+  print(paste("Solutions: y1 =", y_1,", y2 =", y_2))
+}
+```
+
+2.  Include a graph of $f(x)$ versus $x$ for $x \in (-5,5)$.
+
+```{r}
+#| echo: false
+x <- seq(-5,5, length = 300)
+plot(x, a*x^2+b*x+c, type = "l",
+     ylab = "f(x)")
+abline(h=0, lty = 2)
+```
